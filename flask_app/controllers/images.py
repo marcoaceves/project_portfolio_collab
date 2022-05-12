@@ -5,6 +5,7 @@ import urllib.request
 from datetime import datetime
 from flask_app.models.image import Image
 from flask_app import app
+import uuid as uuid
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads' 
@@ -30,8 +31,11 @@ def upload():
         for file in files:
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                data ={'filename': filename
+                pic_name = str(uuid.uuid1()) + "_" + filename
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+
+
+                data ={'filename': pic_name
                             }
             print(file)
             Image.upload_image(data)
