@@ -8,7 +8,7 @@ from flask import flash
 import smtplib
 
 
-db = 'upload_db'
+db = 'project_manager_db'
 
 class Image:
     def __init__(self, data):
@@ -28,6 +28,8 @@ class Image:
         query = "SELECT * FROM upload;"
         results = connectToMySQL(db).query_db(query)
         images = []
+        if results < 1 :
+            return False
         for i in results:
             images.append( cls(i) )
         return images

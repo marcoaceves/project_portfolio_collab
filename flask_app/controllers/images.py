@@ -9,7 +9,6 @@ import uuid as uuid
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads' 
-  
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
@@ -17,9 +16,8 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/',methods=["POST","GET"])
-def index():
+def images():
 
-    print( "TTTTTTTTTTTTTT")
     return render_template('index.html', images=Image.get_all_images())
 
 @app.route("/upload",methods=["POST","GET"])
