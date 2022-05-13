@@ -20,7 +20,7 @@ def allowed_file(filename):
 def index():
 
     print( "TTTTTTTTTTTTTT")
-    return render_template('index.html', images=Image.get_all_images())
+    return render_template('images.html', images=Image.get_all_images())
 
 @app.route("/upload",methods=["POST","GET"])
 def upload():
