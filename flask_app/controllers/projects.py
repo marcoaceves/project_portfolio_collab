@@ -10,6 +10,6 @@ import uuid as uuid
 
 
 @app.route('/display/project',methods=["POST","GET"])
-def index():
+def display_project():
 
     return render_template('display_project.html', images=Image.get_all_images())
