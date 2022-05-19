@@ -58,7 +58,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #4655b8;
 }
 
 /*---------------------------------------------*/
@@ -176,7 +176,7 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 960px;
+  width: auto;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -188,7 +188,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 10px 30px 33px 30px;
 }
 
 /*------------------------------------------------------------------
@@ -216,6 +216,13 @@ iframe {
   text-align: center;
 
   width: 100%;
+  display: block;
+  padding-bottom: 54px;
+}
+.login100-form-logo {
+  margin: auto;
+  padding: 10px;
+  text-align: center;
   display: block;
   padding-bottom: 54px;
 }
@@ -349,7 +356,10 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: -webkit-linear-gradient(-135deg, #4158d0,#434343,#4158d0);
+  background: -o-linear-gradient(-135deg,  #4158d0,#434343,#4158d0);
+  background: -moz-linear-gradient(-135deg,  #4158d0,#434343,#4158d0);
+  background: linear-gradient(-135deg,  #4158d0,#899aff);
 }
 
 
@@ -361,7 +371,7 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    padding: 10px 30px 33px 30px;
   }
 
   .login100-pic {
@@ -369,13 +379,13 @@ iframe {
   }
 
   .login100-form {
-    width: 50%;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px 80px;
+    padding: 10px 30px 33px 30px;
   }
 
   .login100-pic {
@@ -389,7 +399,7 @@ iframe {
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    padding: 10px 15px 33px 15px;
   }
 }
 
