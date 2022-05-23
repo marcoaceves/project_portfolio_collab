@@ -18,3 +18,8 @@ def display_project():
 def display_login():
 
     return render_template('login.html', images=Image.get_all_images())
+
+@app.route('/register',methods=["POST","GET"])
+def display_registration():
+
+    return render_template('registration.html', images=Image.get_all_images())

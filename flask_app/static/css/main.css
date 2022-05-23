@@ -174,6 +174,24 @@ iframe {
   background: -moz-linear-gradient(-135deg, #434343, #4158d0);
   background: linear-gradient(-135deg, #434343, #4158d0);
 }
+.container-login100Registration {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #000000;
+  background: -webkit-linear-gradient(-135deg, #434343, #34dbf5);
+  background: -o-linear-gradient(-135deg, #434343, #34dbf5);
+  background: -moz-linear-gradient(-135deg, #434343, #34dbf5);
+  background: linear-gradient(-135deg, #434343, #34dbf5);
+}
 
 .wrap-login100 {
   width: auto;
@@ -191,20 +209,13 @@ iframe {
   padding: 10px 30px 33px 30px;
 }
 
-/*------------------------------------------------------------------
-[  ]*/
-.login100-pic {
-  width: 316px;
-}
-
-.login100-pic img {
-  max-width: 100%;
-}
-
 
 /*------------------------------------------------------------------
 [  ]*/
 .login100-form {
+  width: 290px;
+}
+.registration100-form {
   width: 290px;
 }
 
@@ -249,6 +260,26 @@ iframe {
   border-radius: 25px;
   padding: 0 30px 0 68px;
 }
+.wrap-registration {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.registration {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #000000;
+
+  display: block;
+  width: 100%;
+  background: #ffffff;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
 
 
 /*------------------------------------------------------------------
@@ -265,8 +296,24 @@ iframe {
   box-shadow: 0px 0px 0px 0px;
   color: #4655b8;
 }
+.focus-registration {
+  display: block;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 0px 0px;
+  color: #34dbf5;
+}
 
 .input100:focus + .focus-input100 {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+.registration:focus + .focus-registration {
   -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
   animation: anim-shadow 0.5s ease-in-out forwards;
 }
@@ -309,9 +356,37 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+.symbol-registration {
+  font-size: 15px;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 35px;
+  pointer-events: none;
+  color: #666666;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
 
 .input100:focus + .focus-input100 + .symbol-input100 {
   color: #6f68f6;
+  padding-left: 28px;
+}
+.registration:focus + .focus-registration + .symbol-registration {
+  color: #34dbf5;
   padding-left: 28px;
 }
 
@@ -360,6 +435,38 @@ iframe {
   background: -o-linear-gradient(-135deg,  #4158d0,#434343,#4158d0);
   background: -moz-linear-gradient(-135deg,  #4158d0,#434343,#4158d0);
   background: linear-gradient(-135deg,  #4158d0,#899aff);
+}
+.registration100-form-btn {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #34dbf5;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.registration100-form-btn:hover {
+  background: -webkit-linear-gradient(-135deg, #34dbf5,#434343,#34dbf5);
+  background: -o-linear-gradient(-135deg,  #34dbf5,#434343,#34dbf5);
+  background: -moz-linear-gradient(-135deg,  #34dbf5,#434343,#34dbf5);
+  background: linear-gradient(-135deg,  #34dbf5,#7183e5bb);
 }
 
 
