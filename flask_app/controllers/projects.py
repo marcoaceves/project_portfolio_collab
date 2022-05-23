@@ -13,3 +13,13 @@ import uuid as uuid
 def display_project():
 
     return render_template('display_project.html', images=Image.get_all_images())
+
+@app.route('/login',methods=["POST","GET"])
+def display_login():
+
+    return render_template('login.html', images=Image.get_all_images())
+
+@app.route('/register',methods=["POST","GET"])
+def display_registration():
+
+    return render_template('registration.html', images=Image.get_all_images())

@@ -139,6 +139,9 @@ h4, .h4 {
   font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
+  .navbar-icon{
+    width: 20px;
+  }
   h4, .h4 {
     font-size: 1.5rem;
   }
@@ -4092,6 +4095,7 @@ textarea.form-control-lg {
   transition: box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
+
   .navbar-toggler {
     transition: none;
   }
@@ -4121,6 +4125,8 @@ textarea.form-control-lg {
 }
 
 @media (min-width: 576px) {
+
+
   .navbar-expand-sm {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4227,6 +4233,9 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 992px) {
+  .navbar-icon{
+    width: 50px;
+  }
   .navbar-expand-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4626,6 +4635,7 @@ textarea.form-control-lg {
   margin-bottom: 0.75rem;
 }
 @media (min-width: 576px) {
+  
   .card-group {
     display: flex;
     flex-flow: row wrap;
@@ -5196,7 +5206,11 @@ textarea.form-control-lg {
     border-left-width: 1px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) { 
+
+  .navbar-icon{
+  margin-right: 5rem;
+}
   .list-group-horizontal-lg {
     flex-direction: row;
   }
@@ -5647,6 +5661,7 @@ textarea.form-control-lg {
 }
 
 @media (max-width: 575.98px) {
+
   .modal-fullscreen-sm-down {
     width: 100vw;
     max-width: none;
@@ -5669,6 +5684,7 @@ textarea.form-control-lg {
   }
 }
 @media (max-width: 767.98px) {
+
   .modal-fullscreen-md-down {
     width: 100vw;
     max-width: none;
@@ -11307,4 +11323,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 15rem;
+}
+#btn-color{
+  background-color: #4158d0;
 }

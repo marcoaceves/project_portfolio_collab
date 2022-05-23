@@ -12,12 +12,21 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href=" {{url_for('static', filename='css/main.css')}}">
+        <!--===============================================================================================-->
+        <link rel="icon" href="{{url_for('static', filename='img/images/img-01.png')}}">
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
+                    <img class="navbar-icon" style="width:50px" src=" {{url_for('static', filename='img/images/img-01.png')}}"  alt="IMG">
                     <a class="navbar-brand" href="index.html">Project Manager</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,7 +35,7 @@
                             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -63,7 +72,7 @@
                                 <div class="row gx-5 align-items-center">
                                     <div class="col-lg-6 order-first order-lg-last">
                                         <img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
-                                        <a class="btn btn-primary btn-lg mt-5" href="#scroll-target">Project Tasks</a>
+                                        <a class="btn btn-primary btn-lg mt-5" id="btn-color" href="#scroll-target">Project Tasks</a>
                                     </div>
                                     <div class="col-lg-6">
                                         <h2 class="fw-bolder">Project Description:</h2>
