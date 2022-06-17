@@ -49,65 +49,50 @@
                     </div>
                 </div>
             </nav>
-            <div class="limiter">
-                <div class="container-login100Registration">
-                    <div class="wrap-login100">
-        
-                        <form autocomplete="off" action="/register/query" method="POST" class="registration100-form validate-form">
-                            <img class="login100-form-logo" src="static/img/images/img-01.png" alt="IMG">
-                            <span class="login100-form-title">
-                                Member Registration
-                            </span>
-        
-                            <div class="row register-form">
-                                <div class="col-md-12 ">
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="First Name *" name="first_name" />
-                                        <span class="focus-registration"></span>
-                                    </div>
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Last Name *" name="last_name" />
-                                        <span class="focus-registration"></span>
-                                    </div>
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input type="text" class="form-control registration" placeholder="Email *" name="email" />
-                                        <span class="focus-registration"></span>
-                                    </div>
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input  autocomplete="off" type="password" class="form-control registration" placeholder="Password *" name="password" />
-                                        <span class="focus-registration"></span>
-                                    </div>
-                                    <div class="form-group mb-3 wrap-input100 validate-input">
-                                        <input  autocomplete="off" type="password" class="form-control registration" placeholder="Confirm Password *" name="confirm_password" />
-                                        <span class="focus-registration"></span>
-                                    </div>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center mt-lg-5 mb-4">
 
-                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <!-- Post content-->
+                            <article>
+                                <!-- Post header-->
+                                <header class="mb-4">
+                                    <!-- Post title-->
+                                    <h1 class="fw-bolder mb-1">Welcome to Project Manager!</h1>
+                                    <div class="row-sm-2 mb-3 ">
+                                        <img class="img-fluid rounded-circle" src="static/uploads/{{user.image}}" style="width:100px" alt="..." />
+                                        <text class="fw-bold navbar-brand ">{{user.first_name}} {{user.last_name}}</text><a class="badge bg-secondary text-decoration-none link-light col align-self-center" href="#!">Full Stack Engineer</a>
+                                    </div>
+                                    <!-- Post categories-->
+                                    <a class="badge bg-primary text-decoration-none link-light" href="#!"> <i class="bi bi-pencil-fill"></i> Edit Profile </a>
 
-                                    <button class="registration100-form-btn">
-                                        Register
-                                    </button>
-                                </div>
-                                <div class="text-center p-t-12">
-                                    <span class="txt1">
-                                        Forgot
-                                    </span>
-                                    <a class="txt2" href="#">
-                                        Username / Password?
-                                    </a>
-                                </div>
-
-                                <div class="text-center p-t-136">
-                                    <a class="txt2" href="/login">
-                                        Login?
-                                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                        </form>
+                                </header>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
                     </div>
                 </div>
             </div>
-
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
