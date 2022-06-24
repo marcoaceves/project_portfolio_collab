@@ -3,4 +3,4 @@
 
 Currently in development***
 
-Website that allows users to collaborate on software projects. And display projects they collaborated in there profile page. 
+Website that allows users to collaborate on software projects. 
