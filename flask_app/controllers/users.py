@@ -24,7 +24,8 @@ def allowed_file(filename):
 
 @app.route('/register',methods=["POST","GET"])
 def display_registration():
-
+    if 'user_id' in session:
+        return redirect('/dashboard')
     return render_template('registration.html', images=Image.get_all_images())
 
 
