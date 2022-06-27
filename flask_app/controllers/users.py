@@ -26,7 +26,7 @@ def allowed_file(filename):
 def display_registration():
     if 'user_id' in session:
         return redirect('/dashboard')
-    return render_template('registration.html', images=Image.get_all_images())
+    return render_template('registration.html')
 
 
 @app.route('/register/query', methods=['POST'])
@@ -88,3 +88,74 @@ def dashboard():
 def logout():
     session.clear()
     return redirect('/')
+
+
+@app.route('/edit_profile',methods=["POST","GET"])
+def display_edit_profile():
+    if 'user_id' not in session:
+        return redirect('/')
+    data={'id':session["user_id"]}
+    user=User.get_user(data)
+    return render_template('edit_profile.html', user=user)
+
+
+@app.route('/edit_profile/query', methods=['POST'])
+def query_edit_profile():
+    files = request.files.getlist('files[]')
+    for file in files:
+        file=secure_filename(file.filename)
+
+        if len(file)<1:
+            print("Files are Empty")
+            data={'id':session["user_id"]}
+            img = User.get_user(data)
+            pic_name = img.image
+            print(pic_name, "^^^^^")
+            data={
+            'id' : session["user_id"],
+            'first_name' : request.form['first_name'],
+            'last_name' : request.form['last_name'],
+            'image' : pic_name,
+            }
+            User.update_profile(data)
+            return redirect(request.referrer)
+        else:
+            data={'id':session["user_id"]}
+            img = User.get_user(data)
+            image = img.image
+            print(image,'HELOO')
+            if image!= "default.png":
+                os.unlink(os.path.join(app.config['UPLOAD_FOLDER'], image))
+                files = request.files.getlist('files[]')
+                pic_name=''
+                for file in files:
+                    if file and allowed_file(file.filename):
+                        filename = secure_filename(file.filename)
+                        pic_name = str(uuid.uuid1()) + "_" + filename
+                        file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+                print(pic_name,'pic_name')
+                data={
+                    'first_name' : request.form['first_name'],
+                    'id' : session["user_id"],
+                    'last_name' : request.form['last_name'],
+                    'image' : pic_name,
+                }
+                User.update_profile(data)
+                return redirect(request.referrer)
+            else:
+                files = request.files.getlist('files[]')
+                pic_name=''
+                for file in files:
+                    if file and allowed_file(file.filename):
+                        filename = secure_filename(file.filename)
+                        pic_name = str(uuid.uuid1()) + "_" + filename
+                        file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+                print(pic_name,'pic_name')
+                data={
+                    'first_name' : request.form['first_name'],
+                    'id' : session["user_id"],
+                    'last_name' : request.form['last_name'],
+                    'image' : pic_name,
+                }
+                User.update_profile(data)
+                return redirect(request.referrer)

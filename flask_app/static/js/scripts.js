@@ -5,3 +5,10 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+fileInput.onchange = evt => {
+    const [file] = fileInput.files
+    if (file) {
+      profile_img.src = URL.createObjectURL(file)
+    }
+  }

@@ -29,6 +29,11 @@ class User:
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
+    def update_profile(cls,data):
+        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, image=%(image)s WHERE id =%(id)s "
+        return connectToMySQL(db).query_db(query,data)
+
+    @classmethod
     def get_by_email(cls, data):
         query ="SELECT * FROM users WHERE email = %(email)s;"
         result = connectToMySQL(db).query_db(query, data)
