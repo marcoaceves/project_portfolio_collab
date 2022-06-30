@@ -439,7 +439,7 @@ legend + * {
   outline-offset: -2px;
   -webkit-appearance: textfield;
 }
-
+ 
 /* rtl:raw:
 [type="tel"],
 [type="url"],
@@ -7954,7 +7954,11 @@ textarea.form-control-lg {
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
+  clip-path: circle() !important;
+  width:  85px;
+  height: 85px;
+  object-fit: cover;
+  margin: 5px;
 }
 
 .rounded-pill {
