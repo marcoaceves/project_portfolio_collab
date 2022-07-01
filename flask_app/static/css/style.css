@@ -7960,6 +7960,11 @@ textarea.form-control-lg {
   object-fit: cover;
   margin: 5px;
 }
+.project_img {
+  width:  600px;
+  height: 400px;
+  object-fit: cover;
+}
 
 .rounded-pill {
   border-radius: 50rem !important;
@@ -7968,7 +7973,7 @@ textarea.form-control-lg {
 .rounded-top {
   border-top-left-radius: 0.25rem !important;
   border-top-right-radius: 0.25rem !important;
-}
+} 
 
 .rounded-end {
   border-top-right-radius: 0.25rem !important;

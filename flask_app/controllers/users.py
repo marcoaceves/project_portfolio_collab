@@ -106,11 +106,11 @@ def query_edit_profile():
         file=secure_filename(file.filename)
 
         if len(file)<1:
-            print("Files are Empty")
+
             data={'id':session["user_id"]}
             img = User.get_user(data)
             pic_name = img.image
-            print(pic_name, "^^^^^")
+
             data={
             'id' : session["user_id"],
             'first_name' : request.form['first_name'],
