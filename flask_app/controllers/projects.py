@@ -6,10 +6,51 @@ from datetime import datetime
 from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
+from flask_app.models.project import Project
+# image proccessing
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'avif'])
+UPLOAD_FOLDER = 'flask_app/static/uploads'
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1080 * 1554
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+# ---------------------------------------
 
 
 @app.route('/display/project',methods=["POST","GET"])
 def display_project():
 
     return render_template('display_project.html')
+
+@app.route('/create/project',methods=["POST","GET"])
+def create_project():
+
+    return render_template('create_project.html')
+
+@app.route('/create/project/query', methods=['POST'])
+def query_create_proeject():
+    empty=''
+    if request.form['files[]'] == empty:
+        data={
+        'name' : request.form['name'],
+        'description' : request.form['description'],
+        'image' : 'default_project.png',
+        }
+        Project.create_project(data)
+    else:
+        files = request.files.getlist('files[]')
+        pic_name=''
+        for file in files:
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                pic_name = str(uuid.uuid1()) + "_" + filename
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+        print(pic_name,'pic_name')
+        data={
+            'name' : request.form['name'],
+            'description' : request.form['description'],
+            'image' : pic_name,
+        }
+        Project.create_project(data)
+    return redirect(request.referrer)
