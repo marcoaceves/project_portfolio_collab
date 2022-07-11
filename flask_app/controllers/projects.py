@@ -22,6 +22,12 @@ def allowed_file(filename):
 def display_project():
 
     return render_template('display_project.html')
+@app.route('/display/all_projects',methods=["POST","GET"])
+
+
+def display_projects():
+    projects= Project.all_projects()
+    return render_template('all_projects.html', projects=projects)
 
 @app.route('/create/project',methods=["POST","GET"])
 def create_project():
@@ -30,27 +36,30 @@ def create_project():
 
 @app.route('/create/project/query', methods=['POST'])
 def query_create_proeject():
-    empty=''
-    if request.form['files[]'] == empty:
-        data={
-        'name' : request.form['name'],
-        'description' : request.form['description'],
-        'image' : 'default_project.png',
-        }
-        Project.create_project(data)
-    else:
-        files = request.files.getlist('files[]')
-        pic_name=''
-        for file in files:
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                pic_name = str(uuid.uuid1()) + "_" + filename
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
-        print(pic_name,'pic_name')
-        data={
+    files = request.files.getlist('files[]')
+    for file in files:
+        file=secure_filename(file.filename)
+        if len(file)<1:
+            data={
             'name' : request.form['name'],
             'description' : request.form['description'],
-            'image' : pic_name,
-        }
-        Project.create_project(data)
+            'image' : 'default_project.png',
+            }
+            Project.create_project(data)
+        else:
+            files = request.files.getlist('files[]')
+            print(files, "hello")
+            pic_name=''
+            for file in files:
+                if file and allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    pic_name = str(uuid.uuid1()) + "_" + filename
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+                    print(pic_name,'pic_name', filename, file)
+            data={
+                'name' : request.form['name'],
+                'description' : request.form['description'],
+                'image' : pic_name,
+            }
+            Project.create_project(data)
     return redirect(request.referrer)

@@ -34,13 +34,13 @@ class Project:
         print(result)
         return cls(result[0])
 
-    @staticmethod
-    def all_projects(cls,data):
+    @classmethod
+    def all_projects(cls):
         query = "SELECT * from projects"
 
         results = connectToMySQL(db).query_db(query)
         projects = []
-        if results < 1 :
+        if len(results) < 1 :
             return False
         for i in results:
             projects.append( cls(i) )
