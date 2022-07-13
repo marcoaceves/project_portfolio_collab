@@ -11,7 +11,5 @@ import uuid as uuid
 @app.route('/')
 def index():
     navbar = Elements.navbars()
-    print(navbar, "$$$")
-    print("helo")
 
     return render_template('index.html', navbar=navbar)

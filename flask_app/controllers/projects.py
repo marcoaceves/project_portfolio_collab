@@ -7,6 +7,7 @@ from flask_app.models.image import Image
 from flask_app import app
 import uuid as uuid
 from flask_app.models.project import Project
+from flask_app.models.stored_html import Elements
 # image proccessing
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'avif'])
 UPLOAD_FOLDER = 'flask_app/static/uploads'
@@ -21,18 +22,17 @@ def allowed_file(filename):
 @app.route('/display/project',methods=["POST","GET"])
 def display_project():
 
-    return render_template('display_project.html')
+    return render_template('display_project.html', navbar = Elements.navbars())
+
 @app.route('/display/all_projects',methods=["POST","GET"])
-
-
 def display_projects():
     projects= Project.all_projects()
-    return render_template('all_projects.html', projects=projects)
+    return render_template('all_projects.html', projects=projects, navbar = Elements.navbars())
 
 @app.route('/create/project',methods=["POST","GET"])
 def create_project():
 
-    return render_template('create_project.html')
+    return render_template('create_project.html', navbar = Elements.navbars())
 
 @app.route('/create/project/query', methods=['POST'])
 def query_create_proeject():

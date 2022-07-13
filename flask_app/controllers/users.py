@@ -8,7 +8,7 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 import uuid as uuid
 from flask_app.models.user import User
-
+from flask_app.models.stored_html import Elements
 bcrypt = Bcrypt(app)
 
 # image proccessing
@@ -26,7 +26,7 @@ def allowed_file(filename):
 def display_registration():
     if 'user_id' in session:
         return redirect('/dashboard')
-    return render_template('registration.html')
+    return render_template('registration.html', navbar = Elements.navbars())
 
 
 @app.route('/register/query', methods=['POST'])
@@ -62,7 +62,7 @@ def display_login():
     if 'user_id' in session:
         return redirect('/dashboard')
 
-    return render_template('login.html', images=Image.get_all_images())
+    return render_template('login.html', images=Image.get_all_images(), navbar=Elements.navbars())
 @app.route('/login/query', methods=['POST'])
 def login():
     data={'email' : request.form['email']}
@@ -82,7 +82,7 @@ def dashboard():
         return redirect('/login')
     data={'id':session["user_id"]}
     user=User.get_user(data)
-    return render_template('dashboard.html', user=user)
+    return render_template('dashboard.html', user=user, navbar = Elements.navbars())
 
 @app.route('/logout')
 def logout():
@@ -96,7 +96,7 @@ def display_edit_profile():
         return redirect('/')
     data={'id':session["user_id"]}
     user=User.get_user(data)
-    return render_template('edit_profile.html', user=user)
+    return render_template('edit_profile.html', user=user, navbar = Elements.navbars())
 
 
 @app.route('/edit_profile/query', methods=['POST'])
