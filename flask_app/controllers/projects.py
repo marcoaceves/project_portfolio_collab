@@ -19,10 +19,14 @@ def allowed_file(filename):
 # ---------------------------------------
 
 
-@app.route('/display/project',methods=["POST","GET"])
-def display_project():
+@app.route('/display/project/<int:project_id>',methods=["POST","GET"])
+def display_project(project_id):
+    data={
+        'id':project_id}
+    project=Project.get_project(data)
+    print(project.name)
 
-    return render_template('display_project.html', navbar = Elements.navbars())
+    return render_template('display_project.html', navbar = Elements.navbars(), project=project)
 
 @app.route('/display/all_projects',methods=["POST","GET"])
 def display_projects():

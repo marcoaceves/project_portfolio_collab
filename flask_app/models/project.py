@@ -29,7 +29,7 @@ class Project:
 
     @classmethod
     def get_project(cls, data):
-        query = "SELECT name, description, image, created_at, updated_at, id FROM projects WHERE id = %(id)s"
+        query = "SELECT * FROM projects WHERE id = %(id)s"
         result = connectToMySQL(db).query_db(query, data)
         print(result)
         return cls(result[0])
