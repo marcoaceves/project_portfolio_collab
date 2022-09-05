@@ -26,6 +26,14 @@
         
                         <form action="/login/query" method="POST" class="login100-form validate-form">
                             <img class="login100-form-logo" src="static/img/images/img-01.png" alt="IMG">
+                            {% with messages = get_flashed_messages(category_filter=['login']) %} 
+                            {% if messages %}                            
+                                {% for message in messages %}            
+                                    <p class="alert alert-danger text-center" role="alert">{{message}}</p>
+                                {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+
                             <span class="login100-form-title">
                                 Member Login
                             </span>

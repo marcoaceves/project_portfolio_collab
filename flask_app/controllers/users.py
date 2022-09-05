@@ -69,6 +69,7 @@ def login():
     user_in_db = User.get_by_email(data)
     if not user_in_db:
         flash('Invalid Email or Password!', 'login')
+        return redirect('/login')
     if not bcrypt.check_password_hash(user_in_db.password, request.form['password']):
         flash('Invalid Email or Password!', 'login')
         return redirect('/login')
@@ -118,6 +119,7 @@ def query_edit_profile():
             'image' : pic_name,
             }
             User.update_profile(data)
+            flash("Profile Successfully Updated!","success")
             return redirect(request.referrer)
         else:
             data={'id':session["user_id"]}
@@ -141,6 +143,7 @@ def query_edit_profile():
                     'image' : pic_name,
                 }
                 User.update_profile(data)
+                flash("Profile Successfully Updated!","success")
                 return redirect(request.referrer)
             else:
                 files = request.files.getlist('files[]')
@@ -158,4 +161,5 @@ def query_edit_profile():
                     'image' : pic_name,
                 }
                 User.update_profile(data)
+                flash("Profile Successfully Updated!","success")
                 return redirect(request.referrer)
